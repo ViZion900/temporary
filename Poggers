@@ -1,0 +1,38 @@
+from tkinter import *
+
+
+root = Tk()
+root.title('Learn to code more Hayder,')
+root.geometry('300x250')
+
+#r= IntVar()
+#r.set("2")
+
+MODES = [
+   ("Football", "In stock, 5 available!"),
+   ("Lego Blocks", "In stock, 2 available!"),
+   ("Teddy Bears", "Out of stock"),
+   ("Jenga", "Out of stock!"),
+   ("Electric Cars", "In stock, 3 available!"),
+   ("Controllable Robot", "Out of stock."),
+]
+
+toys =StringVar()
+toys.set("Football")
+
+for text, mode in MODES:
+    Radiobutton(root, text=text, variable=toys, value=mode).pack(anchor=W)
+
+def clicked(value):
+    myLabel = Label(root, text=value)
+    myLabel.pack()
+
+#Radiobutton(root, text="Option 1", variable=r, value=1, command=lambda: clicked(r.get())).pack()
+#Radiobutton(root, text="Option 2", variable=r, value=2, command=lambda: clicked(r.get())).pack()
+
+#mylabel = Label(root, text=toys.get())
+#mylabel.pack()
+
+myButton = Button(root, text="Click here to check if it's in stock or not   ", command=lambda: clicked(toys.get()))
+myButton.pack()
+mainloop()
